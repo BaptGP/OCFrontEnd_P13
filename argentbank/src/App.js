@@ -20,7 +20,7 @@ function App() {
     if (token && !user) {
       getProfile(JSON.parse(token));
     }
-  }, []);
+  });
 
   if (state.loading === "loading") {
     return <Loading />;

@@ -2,8 +2,7 @@ import "../../style/Home/home.css";
 import "../../style/Home/homeUser.css";
 import { selectUser } from "../../features/userSlice";
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useState } from "react";
 
 function HomeUser() {
   const user = useSelector(selectUser);

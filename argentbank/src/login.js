@@ -1,5 +1,5 @@
 import store from "./app/store";
-import { login, loading, logout } from "./features/userSlice";
+import { login, loading } from "./features/userSlice";
 import { Link } from "react-router-dom";
 
 export const logFunction = async (username, password, setError, checked) => {
