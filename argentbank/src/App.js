@@ -14,25 +14,32 @@ import { getProfile } from "./login";
 function App() {
   const user = useSelector(selectUser);
   const state = useSelector(selectState);
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token && !user) {
-      getProfile(JSON.parse(token))
+      getProfile(JSON.parse(token));
     }
-  }, [])
+  }, []);
 
-  if(state.loading === "loading"){
-    return <Loading/>
+  if (state.loading === "loading") {
+    return <Loading />;
   }
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={user ? <HomeUser /> : <Home/>} />
-        <Route path="/sign-in" element={user ? <Navigate to="/" /> : <SignIn/>} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/transactions"
+          element={<HomeUser />}
+        />
+        <Route
+          path="/sign-in"
+          element={user ? <Navigate to="/" /> : <SignIn />}
+        />
       </Routes>
-      <BottomPage/>
+      <BottomPage />
     </BrowserRouter>
   );
 }

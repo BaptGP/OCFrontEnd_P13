@@ -10,7 +10,6 @@ function HomeUser() {
   const [edit, setEdit] = useState(false);
   const [firstName, setFirstName] = useState(user?.firstName);
   const [lastName, setLastName] = useState(user?.lastName);
-  const [isConnected, setIsConnected] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,14 +27,7 @@ function HomeUser() {
       .then((res) => window.location.reload(false))
       .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    if(user){
-      setIsConnected(true)
-    }
-  }, []);
-
-  if (isConnected) {
+  if (user) {
     return (
       <main
         className="main bg-gray"
@@ -80,7 +72,10 @@ function HomeUser() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
-                <button className="button-editFirst" onClick={() => setEdit(false)}>
+                <button
+                  className="button-editFirst"
+                  onClick={() => setEdit(false)}
+                >
                   Cancel
                 </button>
               </div>
@@ -125,7 +120,7 @@ function HomeUser() {
       </main>
     );
   }
-  <Navigate to="/" />;
+  return null
 }
 
 export default HomeUser;

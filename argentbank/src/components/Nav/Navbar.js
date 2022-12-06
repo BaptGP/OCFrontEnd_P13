@@ -24,10 +24,10 @@ function Navbar() {
       <div>
         {user ? (
           <div style={{display:"flex", flexDirection:"row"}}>
-            <div style={{marginRight:30, display:"flex", flexDirection:"row", alignItems:"center"}}>
+            <Link style={{marginRight:30, display:"flex", flexDirection:"row", alignItems:"center"}} to="/transactions">
               <FontAwesomeIcon icon={faUserCircle} />
               <span style={{ marginLeft: 5 }}>{user.firstName}</span>
-            </div>
+            </Link>
             <button className="main-nav-item" onClick={(e) => handleLogout(e)}>
               <FontAwesomeIcon icon={faSignOut} />
               <span style={{ marginLeft: 5 }}>Sign Out</span>
